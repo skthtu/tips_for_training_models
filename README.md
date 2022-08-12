@@ -66,10 +66,11 @@
   ##### メリット： 実際のバッチサイズより大きいバッチサイズで学習した場合と同じ効果を期待できる。
   
   参考：<br>
-  .[AI SHIFTの記事](https://www.ai-shift.co.jp/techblog/2138)<br>
+  ・[AI SHIFTの記事](https://www.ai-shift.co.jp/techblog/2138)<br>
   
   混同精度学習を使った場合は以下。
-  
+
+
 　    if idx % args.accumulation_steps == 0 or idx == len(tbar) - 1: #accumulation_stepsごとに更新
         scaler.step(optimizer)
         scaler.update()
