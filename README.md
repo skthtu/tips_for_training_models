@@ -6,6 +6,7 @@
   
   参考:<br>
   ・[Pytorch 公式ドキュメント](https://pytorch.org/docs/stable/notes/amp_examples.html#typical-mixed-precision-training)<br>
+  ・[AI4CodeのBaseline](https://github.com/skthtu/ai4code-baseline/blob/main/code/train.py)<br>
   ・[AI SHIFTの記事](https://www.ai-shift.co.jp/techblog/2138)<br>
   ・[俵さんの記事](https://tawara.hatenablog.com/entry/2021/05/31/220936)<br>
   
