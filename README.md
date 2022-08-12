@@ -1,12 +1,14 @@
 ## モデル学習時のTips集
 
 ### １.Mixed Precision Training (混合精度学習)
-
+  #### メリット： メモリ消費量と学習時間が減る。 (学習時間は2分の１くらいになっている。)
+  ####デメリット: 精度が若干落ちる可能性がある。(栗田の体感では、精度はほとんど変わらず、学習時間の削減を考えると使った方がいいと思う。)
+  
   参考: 
-  ・[Pytorch 公式ドキュメント](https://pytorch.org/docs/stable/notes/amp_examples.html#typical-mixed-precision-training)
-  ・[俵さんの記事](https://tawara.hatenablog.com/entry/2021/05/31/220936)
-
-
+  ・[Pytorch 公式ドキュメント](https://pytorch.org/docs/stable/notes/amp_examples.html#typical-mixed-precision-training)<br>
+  ・[俵さんの記事](https://tawara.hatenablog.com/entry/2021/05/31/220936)<br>
+  
+  混合精度学習を使ったtrain↓ (Pytorch公式ドキュメントより引用)
     # Creates model and optimizer in default precision
     model = Net().cuda()
     optimizer = optim.SGD(model.parameters(), ...)
@@ -35,3 +37,21 @@
 
             # Updates the scale for next iteration.
             scaler.update()
+          
+  ちなみに通常のtrain↓
+    # Creates model and optimizer in default precision
+    model = Net().cuda()
+    optimizer = optim.SGD(model.parameters(), ...)
+
+    for epoch in epochs:
+        for input, target in data:
+            optimizer.zero_grad()
+
+            output = model(input)
+            loss = loss_fn(output, target)
+
+            loss.backward()
+            optimizer.step()
+
+
+
