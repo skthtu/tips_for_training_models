@@ -77,4 +77,24 @@
         scaler.update()
         optimizer.zero_grad()
         scheduler.step()
+
+
+### 3.Data Parallel
+  #### 概要: 単一のマシンに搭載された複数のGPUを使って並行して計算を行えるようにする。
+  ###### メリット： 計算の高速化。
+  
+  参考：<br> 
+  ・[Pytorchの公式ドキュメント](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html)<br>
+  ・[PyTorchでGPUを並列で使えるようにするtorch.nn.DataParallelのメモ from Qiita@m__k](https://qiita.com/m__k/items/87b3b1da15f35321ecf5)<br>
+  
+  実装
+  
+　　　　model = simple_model()
+  model = torch.nn.DataParallel(model, device_ids=[0, 1]) #device_idsに使用するGPUを指定。GPUに割り当てられているidsは"nvidia-smi"で確認できる。
+  model.cuda() #GPUに送信
+  
+  torch.save(model.module.state_dict(), output_model_path) #保存するときなど、元々のモデルを操作するときは、Dataparallelオブジェクトに対して.moduleを介して操作する。
+  
+  
+　　　　
   
