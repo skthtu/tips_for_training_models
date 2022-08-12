@@ -4,6 +4,8 @@
   #### メリット： メモリ消費量と学習時間が減る。 (学習時間は2分の１くらいになっている。)
   #### デメリット: 精度が若干落ちる可能性がある。(使っている感じ、精度はほとんど変わらず、学習時間の削減を考えると使った方がいいと思う。)
   
+  ちなみにtrainerを使うときは、training_argsで "fp16 = True" とする。
+  
   参考:<br>
   ・[Pytorch 公式ドキュメント](https://pytorch.org/docs/stable/notes/amp_examples.html#typical-mixed-precision-training)<br>
   ・[AI4CodeのBaseline](https://github.com/skthtu/ai4code-baseline/blob/main/code/train.py)<br>
@@ -58,4 +60,7 @@
             optimizer.step()
 
 
+### 2.Mixed Precision Training (混合精度学習)
+  #### メリット： メモリ消費量と学習時間が減る。 (学習時間は2分の１くらいになっている。)
+  #### デメリット: 精度が若干落ちる可能性がある。(使っている感じ、精度はほとんど変わらず、学習時間の削減を考えると使った方がいいと思う。)
 
