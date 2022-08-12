@@ -11,6 +11,7 @@
   ・[俵さんの記事](https://tawara.hatenablog.com/entry/2021/05/31/220936)<br>
   
   混合精度学習を使ったtrain↓ (Pytorch公式ドキュメントより引用)
+    
     # Creates model and optimizer in default precision
     model = Net().cuda()
     optimizer = optim.SGD(model.parameters(), ...)
@@ -41,6 +42,7 @@
             scaler.update()
           
   ちなみに通常のtrain↓
+
     # Creates model and optimizer in default precision
     model = Net().cuda()
     optimizer = optim.SGD(model.parameters(), ...)
