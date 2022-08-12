@@ -88,6 +88,7 @@
   ・[PyTorchでGPUを並列で使えるようにするtorch.nn.DataParallelのメモ from Qiita@m__k](https://qiita.com/m__k/items/87b3b1da15f35321ecf5)<br>
   
   実装
+  
     model = simple_model()
     model = torch.nn.DataParallel(model, device_ids=[0, 1]) #device_idsに使用するGPUを指定。GPUに割り当てられているidsは"nvidia-smi"で確認できる。
     model.cuda() #GPUに送信
