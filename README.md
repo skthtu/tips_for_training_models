@@ -70,9 +70,9 @@
   
   混同精度学習を使った場合は以下。
   
-　　　　if idx % args.accumulation_steps == 0 or idx == len(tbar) - 1: #accumulation_stepsごとに更新
-    scaler.step(optimizer)
-    scaler.update()
-    optimizer.zero_grad()
-    scheduler.step()
+　    if idx % args.accumulation_steps == 0 or idx == len(tbar) - 1: #accumulation_stepsごとに更新
+        scaler.step(optimizer)
+        scaler.update()
+        optimizer.zero_grad()
+        scheduler.step()
   
