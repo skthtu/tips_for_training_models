@@ -1,3 +1,5 @@
+    #ref: https://github.com/suicao/ai4code-baseline/blob/main/code/train.py
+    
     #train部分のコードのみ抜き出し↓
   
     #optimrizer:
